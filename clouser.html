@@ -1,0 +1,79 @@
+<!-- 1. A clouser is a function having access to the parent scope, even after the parent function has closed. -->
+<html>
+  <head>
+    <title>Clouser</title>
+  </head>
+  <body>
+    <script>
+      //example of closure
+
+      /*function x() {
+        var a = 10;
+        function y() {
+          console.log(a);
+        }
+        return y;
+      }
+      var z = x();
+      z();*/
+
+      //Example of settimeout behavior in closure below
+      // java script is single threaded language and never wait for any excution
+      // if you see the setTimeout function it will not wait for 1000ms to execute the function
+      // java script will put set timeout function in the event loop and execute the function after 1000ms
+      // so the output of below code will be Dive deep setTimeout clouser behavior first then the value of i
+
+      /*function x() {
+        var i = 0;
+        setTimeout(function () {
+          console.log(i);
+        }, 1000);
+
+        console.log("Dive deep into setTimeout clouser behavior");
+      }
+      x();*/
+
+      //Example of clouser in for loop
+      // in below example the setTimeout function is refer to the same copy of the variable
+      // so everytime it will refer to the same variable and print the value of i as 6
+
+      /*function x() {
+        for (var i = 0; i <= 5; i++) {
+          setTimeout(function () {
+            console.log(i);
+          }, i * 1000);
+        }
+        console.log("Dive deep into setTimeout clouser behavior");
+      }
+      x();*/
+
+      // the idea should be to create a new copy of the variable for each iteration
+      // so that the setTimeout function refer to the new copy of the variable
+      // let take an example as below
+      // in below example the setTimeout function is refer to the new copy of the variable
+      /*function x() {
+        for (let i = 1; i <= 5; i++) {
+          setTimeout(function () {
+            console.log(i);
+          }, i * 1000);
+        }
+        console.log("Dive deep into setTimeout clouser behavior");
+      }
+      x();*/
+
+      // write another example without using let keywords
+
+      function x() {
+        for (var i = 1; i <= 5; i++) {
+          function closed(a) {
+            setTimeout(function () {
+              console.log(a);
+            }, i * 1000);
+          }
+          closed(i);
+        }
+      }
+      x();
+    </script>
+  </body>
+</html>

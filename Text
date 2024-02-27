@@ -1,0 +1,7 @@
+JSX : Write the HTML elements in Java Script <TitleComponent></TitleComponent> :
+component that returns the JSX value {TitleComponent} : JavaScript Expression or
+JavaScript variable which allows to return multiple elements from a react
+component. It allows to group list of childrens without adding extra nodes into
+the DOM. Reconciliation is a process of updating the browser DOM. It will
+compare the real DOM with Virtual DOM to find the changes faster and update the
+DOM. To find the differences, it is using diffing algorithm.
